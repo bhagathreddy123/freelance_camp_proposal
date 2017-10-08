@@ -1,0 +1,26 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: username
+  password: password
+  pool: 5
+  template: template0
+
+
+development:
+  <<: *default
+  database: freelance_camp_proposal_development
+
+  
+test:
+  <<: *default
+  database: freelance_camp_proposal_test
+
+
+production:
+  <<: *default
+  database: freelance_camp_proposal_production
+  username: freelance_camp_proposal
+  password: <%= ENV['FREELANCE_CAMP_PROPOSAL_DATABASE_PASSWORD'] %>
